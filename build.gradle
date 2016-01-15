@@ -1,0 +1,31 @@
+// set the properties accordingly
+project.ext {
+    baseDir = projectDir
+    uiDir = "${baseDir}/ui"
+    libDir = "${baseDir}/lib"
+    configDir = "${baseDir}/metadata.xml"
+    zipDir = "${baseDir}/zip"
+    packageVendor = "ThingWorx Customer Service"
+}
+
+task prepPackage() {
+    doLast {
+        delete project.ext.zipDir
+        // add the configuration
+        copy {
+            from "${project.ext.configDir}"
+            into "${buildDir}/zip/"
+        }
+        // add the ui files
+        copy {
+            from uiDir
+            into "${buildDir}/zip/ui/"
+        }
+    }
+}
+
+task packageExtension(type: Zip, dependsOn: prepPackage, overwrite: true) {
+    archiveName = "${project.name}.zip"
+    destinationDir = new File(project.ext.zipDir)
+    from "${buildDir}/zip/"
+}

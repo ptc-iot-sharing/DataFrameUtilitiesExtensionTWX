@@ -1,0 +1,2 @@
+Use the gradle task packageExtension to generate the extension zip.
+Import the zip file like a normal extension.
