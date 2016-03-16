@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entities build="b452" majorVersion="6" minorVersion="0" revision="0" schemaVersion="803">
 	<ExtensionPackages>
-		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx, a PTC Business" packageVersion="1.0.1"  minimumThingWorxVersion="6.0.0"/>
+		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx Labs" packageVersion="1.0.1"  minimumThingWorxVersion="6.0.0"/>
 	</ExtensionPackages>
 	<DataShapes>
 		<DataShape aspect.isEditableExtensionObject="true" baseDataShape="" description="Describes a frame composed of multiple bytes." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" homeMashup="" lastModifiedDate="2016-01-15T12:09:57.901+02:00" name="FrameFormatDataShape" tags="PTC:FrameUtilities">
