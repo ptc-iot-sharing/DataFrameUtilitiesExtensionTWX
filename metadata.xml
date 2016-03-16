@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entities build="b452" majorVersion="6" minorVersion="0" revision="0" schemaVersion="803">
 	<ExtensionPackages>
-		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx, a PTC Business" packageVersion="1.0.0"  minimumThingWorxVersion="6.0.0"/>
+		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx, a PTC Business" packageVersion="1.0.1"  minimumThingWorxVersion="6.0.0"/>
 	</ExtensionPackages>
 	<DataShapes>
 		<DataShape aspect.isEditableExtensionObject="true" baseDataShape="" description="Describes a frame composed of multiple bytes." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" homeMashup="" lastModifiedDate="2016-01-15T12:09:57.901+02:00" name="FrameFormatDataShape" tags="PTC:FrameUtilities">
@@ -34,170 +34,212 @@
 	</DataShapes>
 	<Things><Thing aspect.isEditableExtensionObject="true" description="This thing is helps decoding and encoding messages for various low level devices, like ." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2016-01-28T11:11:27.633+02:00" name="FrameUtilitiesThing" published="false" tags="PTC:FrameUtilities" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="decodeFrame"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="encodeFrame"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="decodeFrame"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var logPrefix = me.name + "::decodeFrame[" + data + "]: ";
 
-	function getBit(num, bit) {
-	return ((num >> bit) % 2 != 0) ? 1 : 0;
-	}
+    function getBit(num, bit) {
+        return ((num >> bit) % 2 != 0) ? 1 : 0;
+    }
 
-	function splitInBytes(data) {
-	var bytes = [];
-	var bytesAsString = '';
-	for (var i = 0, j = 0; i < data.length; i += 2, j++) {
-	bytes[j] = parseInt(data.substr(i, 2), 16);
-	bytesAsString += bytes[j] + ' ';
-	}
-	logger.warn(logPrefix + "Bytes: " + bytesAsString + " with length " + bytes.length);
-	return bytes;
-	}
+    function splitInBytes(data) {
+        var bytes = [];
+        var bytesAsString = '';
+        for (var i = 0, j = 0; i < data.length; i += 2,
+        j++) {
+            bytes[j] = parseInt(data.substr(i, 2), 16);
+            bytesAsString += bytes[j] + ' ';
+        }
+        //logger.warn(logPrefix + "Bytes: " + bytesAsString + " with length " + bytes.length);
+        return bytes;
+    }
 
-	function dec2bin(dec) {
-	return (dec >>> 0).toString(2);
-	}
+    function dec2bin(dec) {
+        return (dec >>> 0).toString(2);
+    }
 
-	var bytes = splitInBytes(data);
-	var result = {};
+    var bytes = splitInBytes(data);
+    var result = {
+    };
 
-	for (var x = 0; x < frameFormat.rows.length; x++) {
-	var fieldValue = 0;
-	var field = frameFormat.rows[x];
-	// get what byte should we start with end the one we should end with
-	var startingByte = Math.floor(field.bitStart / 8);
-	var endingByte = Math.floor(field.bitEnd / 8);
-	var startingBit = field.bitStart % 8;
-	var endBit = field.bitEnd % 8;
+    for (var x = 0; x < frameFormat.rows.length; x++) {
+        var fieldValue = 0;
+        var field = frameFormat.rows[x];
+        // get what byte should we start with end the one we should end with
+        var startByte = Math.floor(field.bitStart / 8);
+        var endByte = Math.floor(field.bitEnd / 8);
+        var startBit = field.bitStart % 8;
+        var endBit = field.bitEnd % 8;
 
-	logger.info("we have field " + field.fieldName + " in bytes " + startingByte + "[" + startingBit + "]-" + endingByte + "[" + endBit + "]");
+      //  logger.info("we have field " + field.fieldName + " in bytes " + startByte + "[" + startBit + "]-" + endByte + "[" + endBit + "]");
 
-	// test if the value is within the same byte
-	if (startingByte === endingByte) {
-	// special case for one bit messages
-	if (startingBit === endBit) {
-	fieldValue = getBit(bytes[startingByte], startingBit);
-	}
-	else {
-	var max = ~0; /* All 1?s */
-	//
-	var right = ((1 << startingBit) - 1) & 0xFF;
+        // test if the value is within the same byte
+        if (startByte === endByte) {
+            // special case for one bit messages
+            if (startBit === endBit) {
+                fieldValue = getBit(bytes[startByte], startBit);
+            }
+            // cover the simple case when we have a full byte
+            /* else if(endBit - startBit == 7) {
+            fieldValue = bytes[startByte];
+        }*/
+            else {
+                var max = ~0;
+                /* All 1?s */
+                //
+                var right = ((1 << startBit) - 1);
 
-	// 1?s through position bitEnd, then 0?s
-	var left = (max - ((1 << endBit) - 1));
+                // 1?s through position bitEnd, then 0?s
+                var left = (max - ((1 << endBit) - 1));
+                // 0?s, with 1s between i and j
+                var mask = ~(left | right);
+                //  logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
+                // var mask = (1 << (endBit  - startBit)) - 1;
+                //fieldValue = (bytes[startByte] >> startBit) & mask;
+                var mask = ~(~0 << (endBit - startBit + 1));
+                var shiftCount = field.isLittleEndian ? startBit : (7 - endBit);
+                fieldValue = (bytes[startByte] >> shiftCount) & mask;
+                //logger.info("We have final mask  : " + dec2bin(mask) + " for " + dec2bin(bytes[startByte] >> startBit) + "(" + field.fieldName +")");
+                //  fieldValue = bytes[startByte] & (mask);
+            }
+        }
+        else {
+            if (field.isLittleEndian) {
+                // in little endian the right mask contais the 1 in lsb, and left 1 in msb
+                var right = ((1 << (endBit + 1)) - 1) & 0xFF;
+                var left = ~((1 << startBit) - 1) & 0xFF;
+                var shiftLeft = startBit;
+                var shiftRight = 0;
+            }
+            else {
+                // if we are in big endian, then, the masks are swaped around
+                var right = ~((1 << 7 - endBit) - 1) & 0xFF;
+                var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
+                // TODO: this does not look right, but no test cases at the moment
+                var shiftRight = 0;
+                var shiftLeft = 7 - endBit;
+            }
+            //logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
 
-	// 0?s, with 1s between i and j
-	var mask = ~(left | right);
-	//  logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
-	//logger.info("We have final mask : " + dec2bin(mask));
-	fieldValue = bytes[startingByte] & mask;
-	}
-	}
-	else {
-	// 1?s after position i
-	var right = ~((1 << startingBit) - 1) & 0xFF;
-	var left = ~((1 << (7 - endBit)) - 1) & 0xFF;
-	logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
+            // the field spans across multiple bytes
+            // first take care of the incomplete bytes
+            var fromFirstByte = (bytes[startByte] & left) >> shiftLeft;
 
-	// the field spans across multiple bytes
-	// first take care of the incomplete bytes
-	var fromFirstBit = bytes[startingByte] & right;
-	var fromLastBit = (bytes[endingByte] & left) >> (7 - endBit);
-	// the shift count is the number of bits from that our value will have.
-	// firstly make room for the bits from the lastByte,
-	// then make room for all the bytes in between;
-	var shiftCount = endBit + 1 + (endingByte - startingByte - 1) * 8;
+            var fromLastByte = (bytes[endByte] & right);
 
-	if (field.isLittleEndian) {
-	fromLastBit = fromLastBit << shiftCount;
-	}
-	else {
-	fromFirstBit = fromFirstBit << shiftCount;
-	}
-	fieldValue = fromFirstBit + fromLastBit;
-	logger.info("We have temp value for " + field.fieldName + ": " + dec2bin(fieldValue));
 
-	for (var i = startingByte + 1; i < endingByte; i++) {
-	if (field.isLittleEndian) {
-	var shiftCount = (i- startingByte - 1) * 8 + endBit + 1;
-	}
-	else {
-	var shiftCount = (endingByte - i - 1) * 8 + endBit + 1;
-	}
-	//logger.info("adding " + dec2bin(bytes[i] << shiftCount) + " bytes " + i + " shift " + shiftCount);
+            if (field.isLittleEndian) {
+                // the shift count is the number of bits from that our value will have.
+                // firstly make room for the bits from the lastByte,
+                // then make room for all the bytes in between;
+                var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
+                fromLastByte = fromLastByte << shiftCount;
+            }
+            else {
+                // in the big endian case instead the shiftcount will want to make space equal to the endBit
+                var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
+                fromFirstByte = fromFirstByte << shiftCount;
+            }
+            fieldValue = fromFirstByte + fromLastByte;
+            for (var i = startByte + 1; i < endByte; i++) {
+                if (field.isLittleEndian) {
+                    var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
+                }
+                else {
+                    var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
+                }
 
-	fieldValue = fieldValue + (bytes[i] << shiftCount);
-	//logger.info("We have value for " + field.fieldName + ": " + dec2bin(fieldValue));
+                fieldValue = fieldValue + (bytes[i] << shiftCount);
 
-	}
-	}
-	result[field.fieldName] = fieldValue;
-	}
-	result = JSON.stringify(result);
-	logger.warn(logPrefix + JSON.stringify(result));]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="encodeFrame"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[function dec2bin(dec) {
-	return (dec >>> 0).toString(2);
-	}
+            }
+        }
+        result[field.fieldName] = fieldValue;
+    }
+    result = JSON.stringify(result);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="encodeFrame"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[function dec2bin(dec) {
+        return (dec >>> 0).toString(2);
+    }
 
-	function dec2hex(number, padding) {
-	var hex = Number(number).toString(16);
-	padding = typeof(padding) === "undefined" || padding === null ? padding = 2 : padding;
+    function dec2hex(number, padding) {
+        var hex = Number(number).toString(16);
+        padding = typeof (padding) === "undefined" || padding === null  ? padding = 2 : padding;
 
-	while (hex.length < padding) {
-	hex = "0" + hex;
-	}
-	var result = hex;
-	return result;
-	}
+        while (hex.length < padding) {
+            hex = "0" + hex;
+        }
+        var result = hex;
+        return result;
+    }
 
-	var logPrefix = me.name + "::encodeFrame[]: ";
+    var logPrefix = me.name + "::encodeFrame[]: ";
 
-	// find out how many bytes will this message use by finding the maximum bitEnd
-	var maxBit = 0;
-	for (var x = 0; x < frameFormat.rows.length; x++) {
-	if(maxBit < frameFormat.rows[x].bitEnd) {
-	maxBit = frameFormat.rows[x].bitEnd;
-	}
-	}
-	// create an array with zeros
-	var bytes = Array.apply(null, Array(Math.floor(maxBit / 8) + 2)).map(Number.prototype.valueOf, 0);
+    // find out how many bytes will this message use by finding the maximum bitEnd
+    var maxBit = 0;
+    for (var x = 0; x < frameFormat.rows.length; x++) {
+        if (maxBit < frameFormat.rows[x].bitEnd) {
+            maxBit = frameFormat.rows[x].bitEnd;
+        }
+    }
+    // create an array with zeros
+    var bytes = Array.apply(null , Array(Math.floor(maxBit / 8) + 1)).map(Number.prototype.valueOf, 0);
+    for (var x = 0; x < frameFormat.rows.length; x++) {
+        var field = frameFormat.rows[x];
+        // get what byte should we start with end the one we should end with
+        var startByte = Math.floor(field.bitStart / 8);
+        var endByte = Math.floor(field.bitEnd / 8);
+        var startBit = field.bitStart % 8;
+        var endBit = field.bitEnd % 8;
+        // special case for fields spanning one bit
+        if (startByte == startByte && startBit == endBit) {
+            var shiftCount = field.isLittleEndian ? startBit : (7 - startBit);
+            bytes[startByte] |= field.value << shiftCount;
+        }
+        else {
+            if (field.isLittleEndian) {
+                // in little endian the right mask contais the 1 in lsb, and left 1 in msb
+                var right = ((1 << (endBit + 1)) - 1) & 0xFF;
+                var left = ~((1 << startBit) - 1) & 0xFF;
+                var shiftLeft = startBit;
+                var shiftRight = 0;
+            }
+            else {
+                // if we are in big endian, then, the masks are swaped around
+                var right = ~((1 << 7 - endBit) - 1) & 0xFF;
+                var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
+                // TODO: this does not look right, but no test cases at the moment
+                var shiftRight = 0;
+                var shiftLeft = 7 - endBit;
+            }
+            // first fill the incomplete bytes;
+            if (field.isLittleEndian) {
+                // the shift count is the number of bits from that our value will have.
+                // firstly make room for the bits from the lastByte,
+                // then make room for all the bytes in between;
+                var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
+                bytes[endByte] = bytes[endByte] | ((field.value >> shiftCount) & right);
+                bytes[startByte] = bytes[startByte] | ((field.value << shiftLeft) & left);
 
-	for (var x = 0; x < frameFormat.rows.length; x++) {
-	var field = frameFormat.rows[x];
-	// get what byte should we start with end the one we should end with
-	var startingByte = Math.floor(field.bitStart / 8);
-	var endingByte = Math.floor(field.bitEnd / 8);
-	var startingBit = field.bitStart % 8;
-	var endBit = field.bitEnd % 8;
-	// special case for fields spanning one bit
-	if (startingByte == startingByte && startingBit == endBit) {
-	bytes[startingByte] |= field.value << startingBit;
-	}
-	else {
-	var right = ~((1 << (endBit + 1)) - 1) & 0xFF;
-	var left = ~((1 << startingBit) - 1) & 0xFF;
-	// first fill the incomplete bytes;
-	//logger.info("FOR " + field.fieldName + " we have byte: " + dec2bin( bytes[startingByte]) );
-	bytes[startingByte] = bytes[startingByte] | ((field.value << startingBit) & left);
-	bytes[endingByte] = bytes[endingByte] | (field.value & right);
 
-	logger.info("FOR " + field.fieldName + " we have left: " + dec2bin(left) + " right: " + dec2bin(right));
-	logger.info("so we have startingByte " + dec2bin(bytes[startingByte]) + " endingByte " + dec2bin(bytes[endingByte]));
+            }
+            else {
+                // in the big endian case instead the shiftcount will want to make space equal to the endBit
+                var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
+                bytes[startByte] = bytes[startByte] | ((field.value >> shiftCount) & left);
+                bytes[endByte] = bytes[endByte] | ((field.value << shiftLeft) & right);
+            }
 
-	for (var i = startingByte + 1; i < endingByte; i++) {
-	if (field.isLittleEndian) {
-	var shiftCount = (i - startingByte - 1) * 8 + endBit + 1;
-	}
-	else {
-	var shiftCount = (endingByte - i - 1) * 8 + endBit + 1;
-	}
-	logger.info("adding " + dec2bin( field.value >> shiftCount) + " bytes " + i + " shift " + i);
+            for (var i = startByte + 1; i < endByte; i++) {
+                if (field.isLittleEndian) {
+                    var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
+                }
+                else {
+                    var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
+                }
 
-	bytes[i] = field.value >> shiftCount;
-	}
-	}
+                bytes[i] = field.value >> shiftCount;
+            }
+        }
 
-	}
+    }
 
-	var result = "";
-	// now convert everything to hex
-	for (var i = 0; i < bytes.length; i++) {
-	result += dec2hex(bytes[i], 2);
-	}
-
-	logger.info(result);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, tags : updated&#10;" timestamp="2016-01-28T11:11:27.633+02:00" user="Administrator"/></ConfigurationChanges></Thing></Things>
+    var result = "";
+    // now convert everything to hex
+    for (var i = 0; i < bytes.length; i++) {
+        result += dec2hex(bytes[i] & 0xFF, 2);
+    }]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : name : updated, tags : updated&#10;" timestamp="2016-01-28T11:11:27.633+02:00" user="Administrator"/></ConfigurationChanges></Thing></Things>
 </Entities>
