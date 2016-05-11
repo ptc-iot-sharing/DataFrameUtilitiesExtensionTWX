@@ -75,7 +75,10 @@ for (var x = 0; x < frameFormat.rows.length; x++) {
     if (startByte === endByte) {
         // special case for one bit messages
         if (startBit === endBit) {
-            fieldValue = getBit(bytes[startByte], startBit);
+
+            fieldValue = getBit(bytes[startByte], 7-startBit);
+            //logger.error("We have a bit value:  " + fieldValue + " for "+field.fieldName  ) ;
+           // logger.error("We startBit:" + startBit + " byte: " + startByte + "value: " + bytes[startByte] ) ;
         }
         // cover the simple case when we have a full byte
         /* else if(endBit - startBit == 7) {
