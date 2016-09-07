@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b14" majorVersion="7" minorVersion="1" modelPersistenceProviderPackage="H2PersistenceProviderPackage" revision="3" schemaVersion="911"><Things><Thing aspect.isEditableExtensionObject="true" aspect.isExtension="true" description="This thing is helps decoding and encoding messages for various low level devices, like ." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2016-09-07T14:54:46.887+03:00" name="FrameUtilitiesThing" projectName="" published="false" tags="PTC:FrameUtilities" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="Takes in a frameFormat and data in string form returns a json with the parsed data." isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DecodeBlob"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BLOB" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/><FieldDefinition aspect.defaultValue="0" baseType="INTEGER" description="Start at the offset byte for decoding" name="offset" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="decodeFrame"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="Takes in a frameFormat and data in string form (a hex) returns a json with the parsed data." isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DecodeHex"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="EncodeBlob"><ResultType baseType="BLOB" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="encodeFrame"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="EncodeHex"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="DecodeBlob"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint  bitwise: false */
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b14" majorVersion="7" minorVersion="1" modelPersistenceProviderPackage="H2PersistenceProviderPackage" revision="3" schemaVersion="911"><Things><Thing aspect.isEditableExtensionObject="true" aspect.isExtension="true" description="This thing is helps decoding and encoding messages for various low level devices, like ." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" lastModifiedDate="2016-09-08T00:37:58.858+03:00" name="FrameUtilitiesThing" projectName="" published="false" tags="PTC:FrameUtilities" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="Takes in a frameFormat and data in string form returns a json with the parsed data." isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DecodeBlob"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="BLOB" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/><FieldDefinition aspect.defaultValue="0" baseType="INTEGER" description="Start at the offset byte for decoding" name="offset" ordinal="3"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="Takes in a frameFormat and data in string form (a hex) returns a json with the parsed data." isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="DecodeHex"><ResultType baseType="JSON" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="data" ordinal="2"/><FieldDefinition aspect.dataShape="FrameFormatDataShape" aspect.defaultValue="{&quot;rows&quot;:[],&quot;dataShape&quot;:{&quot;fieldDefinitions&quot;:{&quot;fieldName&quot;:{&quot;name&quot;:&quot;fieldName&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;Name of the field. Will be used in the result&quot;,&quot;baseType&quot;:&quot;STRING&quot;,&quot;ordinal&quot;:1},&quot;bitEnd&quot;:{&quot;name&quot;:&quot;bitEnd&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;The last bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:3},&quot;isLittleEndian&quot;:{&quot;name&quot;:&quot;isLittleEndian&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;BOOLEAN&quot;,&quot;ordinal&quot;:4},&quot;value&quot;:{&quot;name&quot;:&quot;value&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:5},&quot;bitStart&quot;:{&quot;name&quot;:&quot;bitStart&quot;,&quot;aspects&quot;:{},&quot;description&quot;:&quot;What is the first bit in the field&quot;,&quot;baseType&quot;:&quot;INTEGER&quot;,&quot;ordinal&quot;:2}}}}" aspect.isRequired="true" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="EncodeBlob"><ResultType baseType="BLOB" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="EncodeHex"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.dataShape="FrameFormatDataShape" baseType="INFOTABLE" description="" name="frameFormat" ordinal="1"/></ParameterDefinitions></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="DecodeBlob"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint  bitwise: false */
 var logPrefix = me.name + "::DecodeBlob[" + data + "]: ";
 
 function getBit(num, bit) {
@@ -16,7 +16,8 @@ for (var i = 0, j = 0;
      i++) {
     bytes[i] = bytes[i] & 0xff;
     bytesAsString += (bytes[i]>>>0).toString(16).slice(-2) + " ";
-} 
+}
+
 logger.warn(logPrefix + "Bytes: " + bytesAsString + " with length " + bytes.length);
 var result = {
 };
@@ -31,8 +32,16 @@ for (var x = 0; x < frameFormat.rows.length; x++) {
     var endBit = field.bitEnd % 8;
 
     //  logger.info("we have field " + field.fieldName + " in bytes " + startByte + "[" + startBit + "]-" + endByte + "[" + endBit + "]");
-    // test if we are dealing with a float32 
-    if (field.isFloat32) {
+    if(field.isString) {
+        fieldValue = '';
+        var byteLength = endByte - startByte + 1;
+        for (var i = 0; i < byteLength; i++) {
+            fieldValue += String.fromCharCode(bytes[startByte + i]);
+        }
+        fieldValue = decodeURIComponent(escape(field.value));
+    }
+    else if (field.isFloat32) {
+        // we have some special cases for a float32
         var sign = 1 - (2 * (bytes[startByte+3] >> 7));
         var exponent = (((bytes[startByte + 3] << 1) & 0xff) | (bytes[startByte+2] >> 7)) - 127;
         var mantissa = ((bytes[startByte + 2] & 0x7f) << 16) | (bytes[startByte + 1] << 8) | bytes[startByte];
@@ -153,167 +162,6 @@ for (var x = 0; x < frameFormat.rows.length; x++) {
         result[field.fieldName] = fieldValue;
     }
 }
-//    logger.warn(logPrefix + JSON.stringify(result));]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="decodeFrame"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[var logPrefix = me.name + "::decodeFrame[" + data + "]: ";
-
-function getBit(num, bit) {
-    return ((num >> bit) % 2 != 0) ? 1 : 0;
-}
-
-function splitInBytes(data) {
-    var bytes = [];
-    var bytesAsString = '';
-    for (var i = 0, j = 0;
-         i < data.length;
-         i += 2,
-         j++) {
-        bytes[j] = parseInt(data.substr(i, 2), 16);
-        bytesAsString += bytes[j] + ' ';
-    }
-    //  logger.warn(logPrefix + "Bytes: " + bytesAsString + " with length " + bytes.length);
-    return bytes;
-}
-
-function dec2bin(dec) {
-    return (dec >>> 0).toString(2);
-}
-
-var bytes = splitInBytes(data);
-var result = {
-};
-
-for (var x = 0; x < frameFormat.rows.length; x++) {
-    var fieldValue = 0;
-    var field = frameFormat.rows[x];
-    // get what byte should we start with end the one we should end with
-    var startByte = Math.floor(field.bitStart / 8);
-    var endByte = Math.floor(field.bitEnd / 8);
-    var startBit = field.bitStart % 8;
-    var endBit = field.bitEnd % 8;
-
-    //  logger.info("we have field " + field.fieldName + " in bytes " + startByte + "[" + startBit + "]-" + endByte + "[" + endBit + "]");
-    // test if we are dealing with a float32 
-    if (field.isFloat32) {
-        var sign = 1 - (2 * (bytes[startByte+3] >> 7));
-        var exponent = (((bytes[startByte + 3] << 1) & 0xff) | (bytes[startByte+2] >> 7)) - 127;
-        var mantissa = ((bytes[startByte + 2] & 0x7f) << 16) | (bytes[startByte + 1] << 8) | bytes[startByte];
-
-        if (exponent === 128) {
-            if (mantissa !== 0) {
-                var fieldValue= NaN;
-            }
-            else {
-                var fieldValue= sign * Infinity;
-            }
-        }
-
-        if (exponent === -127) {
-            // Denormalized
-            var fieldValue = sign * mantissa * Math.pow(2, -126 - 23);
-        }
-
-        var fieldValue = sign * (1 + mantissa * Math.pow(2, -23)) * Math.pow(2, exponent);
-    }
-    // test if the value is within the same byte
-    else if (startByte === endByte) {
-        // special case for one bit messages
-        if (startBit === endBit) {
-			
-            fieldValue = getBit(bytes[startByte], startBit);
-            //logger.error("We have a bit value:  " + fieldValue + " for "+field.fieldName  ) ;
-           // logger.error("We startBit:" + startBit + " byte: " + startByte + "value: " + bytes[startByte] + " for " + field.fieldName ) ;
-        }
-        // cover the simple case when we have a full byte
-        /* else if(endBit - startBit == 7) {
-            fieldValue = bytes[startByte];
-        }
-*/
-        else {
-            var max = ~0;
-            /* All 1?s */
-            //
-            var right = ((1 << startBit) - 1);
-
-            // 1?s through position bitEnd, then 0?s
-            var left = (max - ((1 << endBit) - 1));
-            // 0?s, with 1s between i and j
-            var mask = ~(left | right);
-            //  logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
-            // var mask = (1 << (endBit  - startBit)) - 1;
-            //fieldValue = (bytes[startByte] >> startBit) & mask;
-            var mask = ~(~0 << (endBit - startBit + 1));
-            var shiftCount = field.isLittleEndian ? startBit : (7 - endBit);
-            fieldValue = (bytes[startByte] >> shiftCount) & mask;
-            //logger.info("We have final mask  : " + dec2bin(mask) + " for " + dec2bin(bytes[startByte] >> startBit) + "(" + field.fieldName +")");
-            //  fieldValue = bytes[startByte] & (mask);
-        }
-    }
-    else {
-        if (field.isLittleEndian) {
-            // in little endian the right mask contais the 1 in lsb, and left 1 in msb
-            var right = ((1 << (endBit + 1)) - 1) & 0xFF;
-            var left = ~((1 << startBit) - 1) & 0xFF;
-            var shiftLeft = startBit;
-            var shiftRight = 0;
-        }
-        else {
-            // if we are in big endian, then, the masks are swaped around
-            var right = ~((1 << 7 - endBit) - 1) & 0xFF;
-            var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
-            // TODO: this does not look right, but no test cases at the moment
-            var shiftRight = 7-endBit;
-            var shiftLeft = 0;
-        }
-        //  logger.info("We have masks left: " + dec2bin(left) + " right: " + dec2bin(right));
-
-        // the field spans across multiple bytes
-        // first take care of the incomplete bytes
-        var fromFirstByte = (bytes[startByte] & left) >> shiftLeft;
-        //  logger.info("we jad from starting byte: " + dec2bin(fromFirstByte));
-
-        var fromLastByte = (bytes[endByte] & right) >> shiftRight;
-        //  logger.info("we jad from end byte: " + dec2bin(fromLastByte));
-
-
-        if (field.isLittleEndian) {
-            // the shift count is the number of bits from that our value will have.
-            // firstly make room for the bits from the lastByte,
-            // then make room for all the bytes in between;
-            var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
-            fromLastByte = fromLastByte << shiftCount;
-        }
-        else {
-            // in the big endian case instead the shiftcount will want to make space equal to the endBit
-            var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
-            fromFirstByte = fromFirstByte << shiftCount;
-        }
-        fieldValue = fromFirstByte + fromLastByte;
-        //    logger.info("We have dsaasdad first: " + dec2bin(fromFirstByte) + " last: " + dec2bin(fromLastByte));
-
-        //  logger.info("We have temp value for " + field.fieldName + ": " + dec2bin(fieldValue));
-
-        for (var i = startByte + 1; i < endByte; i++) {
-            if (field.isLittleEndian) {
-                var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
-            }
-            else {
-                var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
-            }
-            //    logger.info("adding " + dec2bin(bytes[i] << shiftCount) + " bytes " + i + " shift " + shiftCount);
-
-            fieldValue = fieldValue + (bytes[i] << shiftCount);
-            //    logger.info("We have value for " + field.fieldName + ": " + dec2bin(fieldValue));
-
-        }
-    }
-
-    if(field.isUnsigned) {
-        result[field.fieldName] = fieldValue >>> 0;
-    }
-    else {
-        result[field.fieldName] = fieldValue;
-    }
-}
-result = JSON.stringify(result);
 //    logger.warn(logPrefix + JSON.stringify(result));]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DecodeHex"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
 
 var logPrefix = me.name + "::DecodeHexString[" + data + "]: ";
@@ -357,7 +205,66 @@ var result = me.DecodeBlob(params);
 
 ]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="EncodeBlob"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
 
-var logPrefix = me.name + "::EncodeBlobFrame[]: ";
+var logPrefix = me.name + "::EncodeBlob[]: ";
+
+/// inspired by implementation from jDataView
+function getFloatBinary  (value, mantSize, expSize) {
+    var signBit = value < 0 ? 1 : 0,
+        exponent,
+        mantissa,
+        eMax = ~(-1 << (expSize - 1)),
+        eMin = 1 - eMax;
+    // negative numbers have their sign set, so just treat them positive
+    value = value < 0 ? -value : value;
+
+    // handle the special cases
+    if (value === 0) {
+        exponent = 0;
+        mantissa = 0;
+    }
+    else if (isNaN(value)) {
+        exponent = 2 * eMax + 1;
+        mantissa = 1;
+    }
+    else if (value === Infinity) {
+        exponent = 2 * eMax + 1;
+        mantissa = 0;
+    }
+    else {
+        // get the exponent value
+        exponent = Math.floor(Math.log(value) / Math.LN2);
+        if (exponent >= eMin && exponent <= eMax) {
+            // handle the normalized numbers
+            mantissa = Math.floor((value * Math.pow(2, -exponent) - 1) * Math.pow(2, mantSize));
+            exponent += eMax;
+        }
+        else {
+            // and handle the normalized, close to 0 numbers
+            mantissa = Math.floor(value / Math.pow(eMin - mantSize));
+            exponent = 0;
+        }
+    }
+
+    var b = [];
+    // set the mantissa in the byte array
+    while (mantSize >= 8) {
+        b.push(mantissa % 256);
+        mantissa = Math.floor(mantissa / 256);
+        mantSize -= 8;
+    }
+    // set the exponent
+    exponent = (exponent << mantSize) | mantissa;
+    expSize += mantSize;
+    while (expSize >= 8) {
+        b.push(exponent & 0xff);
+        exponent >>>= 8;
+        expSize -= 8;
+    }
+    // set the sign bit and the last of the exponent
+    b.push((signBit << expSize) | exponent);
+
+    return b;
+}
 
 // find out how many bytes will this message use by finding the maximum bitEnd
 var maxBit = 0;
@@ -376,55 +283,78 @@ for (var x = 0; x < frameFormat.rows.length; x++) {
     var endByte = Math.floor(field.bitEnd / 8);
     var startBit = field.bitStart % 8;
     var endBit = field.bitEnd % 8;
-    // special case for fields spanning one bit
-    if (startByte === startByte && startBit === endBit) {
-        var shiftCount = field.isLittleEndian ? startBit : (7 - startBit);
-        bytes[startByte] |= field.value << shiftCount;
+    if(field.isString) {
+        // string is simple to deal with. Just get the charCode for each of the char points
+        field.value = unescape(encodeURIComponent(field.value));
+        for (var i = 0, length = field.value.length; i < length; i++) {
+            bytes[startByte + i] = field.value.charCodeAt(i) & 0xff;
+        }
+    }
+    else if(field.isFloat32) {
+        // deal with the case where we must write a float32 in there
+        // we automatically assume that the float will span from bitStart to bitStart+32
+        field.value = parseFloat(field.value);
+        //logger.info(logPrefix + " ecoding "  + field.value);
+        var byteValue =  getFloatBinary(field.value, 23, 8);
+         logger.info(logPrefix + " we have " + byteValue);
+        // now dump the value into the field
+        for(var k = 0; k <4;k++) {
+            //logger.info(logPrefix + "setting byte " + startByte + k + " to value " +  byteValue[field.isLittleEndian ? k : 3-k].toString(16));
+            bytes[startByte+k ] = byteValue[field.isLittleEndian ? k : 3-k];
+        }
     }
     else {
-        if (field.isLittleEndian) {
-            // in little endian the right mask contais the 1 in lsb, and left 1 in msb
-            var right = ((1 << (endBit + 1)) - 1) & 0xFF;
-            var left = ~((1 << startBit) - 1) & 0xFF;
-            var shiftLeft = startBit;
-            var shiftRight = 0;
+        field.value = parseInt(field.value);
+        if (startByte === startByte && startBit === endBit) {
+            // special case for fields spanning one bit
+            var shiftCount = field.isLittleEndian ? startBit : (7 - startBit);
+            bytes[startByte] |= field.value << shiftCount;
         }
         else {
-            // if we are in big endian, then, the masks are swaped around
-            var right = ~((1 << 7 - endBit) - 1) & 0xFF;
-            var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
-            // TODO: this does not look right, but no test cases at the moment
-            var shiftRight = 0;
-            var shiftLeft = 7 - endBit;
-        }
-        // first fill the incomplete bytes;
-        if (field.isLittleEndian) {
-            // the shift count is the number of bits from that our value will have.
-            // firstly make room for the bits from the lastByte,
-            // then make room for all the bytes in between;
-            var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
-            bytes[endByte] = bytes[endByte] | ((field.value >> shiftCount) & right);
-            bytes[startByte] = bytes[startByte] | ((field.value << shiftLeft) & left);
-
-
-        }
-        else {
-            // in the big endian case instead the shiftcount will want to make space equal to the endBit
-            var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
-            bytes[startByte] = bytes[startByte] | ((field.value >> shiftCount) & left);
-            bytes[endByte] = bytes[endByte] | ((field.value << shiftLeft) & right);
-        }
-
-
-        for (var i = startByte + 1; i < endByte; i++) {
             if (field.isLittleEndian) {
-                var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
+                // in little endian the right mask contais the 1 in lsb, and left 1 in msb
+                var right = ((1 << (endBit + 1)) - 1) & 0xFF;
+                var left = ~((1 << startBit) - 1) & 0xFF;
+                var shiftLeft = startBit;
+                var shiftRight = 0;
             }
             else {
-                var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
+                // if we are in big endian, then, the masks are swaped around
+                var right = ~((1 << 7 - endBit) - 1) & 0xFF;
+                var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
+                // TODO: this does not look right, but no test cases at the moment
+                var shiftRight = 0;
+                var shiftLeft = 7 - endBit;
+            }
+            // first fill the incomplete bytes;
+            if (field.isLittleEndian) {
+                // the shift count is the number of bits from that our value will have.
+                // firstly make room for the bits from the lastByte,
+                // then make room for all the bytes in between;
+                var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
+                bytes[endByte] = bytes[endByte] | ((field.value >> shiftCount) & right);
+                bytes[startByte] = bytes[startByte] | ((field.value << shiftLeft) & left);
+
+
+            }
+            else {
+                // in the big endian case instead the shiftcount will want to make space equal to the endBit
+                var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
+                bytes[startByte] = bytes[startByte] | ((field.value >> shiftCount) & left);
+                bytes[endByte] = bytes[endByte] | ((field.value << shiftLeft) & right);
             }
 
-            bytes[i] = field.value >> shiftCount;
+
+            for (var i = startByte + 1; i < endByte; i++) {
+                if (field.isLittleEndian) {
+                    var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
+                }
+                else {
+                    var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
+                }
+
+                bytes[i] = field.value >> shiftCount;
+            }
         }
     }
 
@@ -443,104 +373,7 @@ var result = base64EncodeBytes(
     {
         array: bytes
     }
-);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="encodeFrame"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
-
-function dec2bin(dec) {
-    return (dec >>> 0).toString(2);
-}
-
-function dec2hex(number, padding) {
-    var hex = Number(number).toString(16);
-    padding = typeof (padding) === "undefined" || padding === null  ? padding = 2 : padding;
-
-    while (hex.length < padding) {
-        hex = "0" + hex;
-    }
-    var result = hex;
-    return result;
-}
-
-var logPrefix = me.name + "::encodeFrame[]: ";
-
-// find out how many bytes will this message use by finding the maximum bitEnd
-var maxBit = 0;
-for (var x = 0; x < frameFormat.rows.length; x++) {
-    if (maxBit < frameFormat.rows[x].bitEnd) {
-        maxBit = frameFormat.rows[x].bitEnd;
-    }
-}
-// create an array with zeros
-var bytes = Array.apply(null , Array(Math.floor(maxBit / 8) + 1)).map(Number.prototype.valueOf, 0);
-//  logger.info(bytes.length);
-for (var x = 0; x < frameFormat.rows.length; x++) {
-    var field = frameFormat.rows[x];
-    // get what byte should we start with end the one we should end with
-    var startByte = Math.floor(field.bitStart / 8);
-    var endByte = Math.floor(field.bitEnd / 8);
-    var startBit = field.bitStart % 8;
-    var endBit = field.bitEnd % 8;
-    // special case for fields spanning one bit
-    if (startByte == startByte && startBit == endBit) {
-        var shiftCount = field.isLittleEndian ? startBit : (7 - startBit);
-        bytes[startByte] |= field.value << shiftCount;
-    }
-    else {
-        if (field.isLittleEndian) {
-            // in little endian the right mask contais the 1 in lsb, and left 1 in msb
-            var right = ((1 << (endBit + 1)) - 1) & 0xFF;
-            var left = ~((1 << startBit) - 1) & 0xFF;
-            var shiftLeft = startBit;
-            var shiftRight = 0;
-        }
-        else {
-            // if we are in big endian, then, the masks are swaped around
-            var right = ~((1 << 7 - endBit) - 1) & 0xFF;
-            var left = ((1 << (7 - startBit + 1)) - 1) & 0xFF;
-            // TODO: this does not look right, but no test cases at the moment
-            var shiftRight = 0;
-            var shiftLeft = 7 - endBit;
-        }
-        // first fill the incomplete bytes;
-        if (field.isLittleEndian) {
-            // the shift count is the number of bits from that our value will have.
-            // firstly make room for the bits from the lastByte,
-            // then make room for all the bytes in between;
-            var shiftCount = 8 * (endByte - startByte - 1) + 7 - startBit + 1;
-            bytes[endByte] = bytes[endByte] | ((field.value >> shiftCount) & right);
-            bytes[startByte] = bytes[startByte] | ((field.value << shiftLeft) & left);
-
-
-        }
-        else {
-            // in the big endian case instead the shiftcount will want to make space equal to the endBit
-            var shiftCount = 8 * (endByte - startByte - 1) + endBit + 1;
-            bytes[startByte] = bytes[startByte] | ((field.value >> shiftCount) & left);
-            bytes[endByte] = bytes[endByte] | ((field.value << shiftLeft) & right);
-        }
-
-
-        for (var i = startByte + 1; i < endByte; i++) {
-            if (field.isLittleEndian) {
-                var shiftCount = (i - startByte - 1) * 8 + endBit + 1;
-            }
-            else {
-                var shiftCount = (endByte - i - 1) * 8 + endBit + 1;
-            }
-
-            bytes[i] = field.value >> shiftCount;
-        }
-    }
-
-}
-
-var result = "";
-//  logger.info(logPrefix + "we now have a length of" + bytes.length);
-// now convert everything to hex
-for (var i = 0; i < bytes.length; i++) {
-    result += dec2hex(bytes[i] & 0xFF, 2);
-}
-
-]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="EncodeHex"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
+);]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="EncodeHex"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
 
 function dec2hex(number, padding) {
     var hex = Number(number).toString(16);
@@ -566,4 +399,4 @@ for (var i = 0; i < bytes.length; i++) {
     result += dec2hex(bytes[i] & 0xFF, 2);
 }
 
-]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="Importing Extension Package Metadata" timestamp="2016-07-29T17:10:41.740+03:00" user="SuperUser"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-29T17:29:51.472+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-31T19:49:46.746+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T19:49:50.192+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T19:56:11.910+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:10:20.458+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-31T21:13:52.492+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:15:47.620+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:16:33.804+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:22:56.107+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:23:45.801+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:27:40.308+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:28:48.908+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:29:52.867+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:57:27.813+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:00:27.758+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:43:07.141+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:46:23.831+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:49:19.557+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:50:26.701+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:52:54.783+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:54:05.475+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T23:09:47.711+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-08-01T10:27:27.927+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, Description updated, Service Added, DecodeBlob : Code Updated, Output Updated, Service Added, decodeFrameCopy : Code Updated&#10;" timestamp="2016-09-07T12:34:24.808+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, Output Updated, Description updated&#10;" timestamp="2016-09-07T12:37:33.571+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Input parameter data Updated, Inputs updated&#10;" timestamp="2016-09-07T12:38:00.490+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Input parameter offset Added, Inputs updated&#10;" timestamp="2016-09-07T12:41:57.966+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T12:43:19.502+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T12:43:25.068+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T12:44:53.292+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T13:02:24.023+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:02:52.404+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:05:40.861+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:07:10.059+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:11:00.216+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:11:30.681+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:12:20.975+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:14:01.598+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:14:23.248+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated&#10;" timestamp="2016-09-07T13:16:03.601+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated&#10;" timestamp="2016-09-07T13:18:50.214+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:18:57.036+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:20:28.637+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:21:00.260+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:23:33.042+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:24:10.792+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:02.116+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:31.358+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:48.943+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:26:38.409+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T13:27:18.485+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:29:55.327+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : encodeFrame : Code Updated&#10;" timestamp="2016-09-07T13:30:53.564+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:30:58.222+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:31:06.908+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeHexFrame : Code Updated, Service Added&#10;" timestamp="2016-09-07T13:31:48.829+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Output Updated, Service Added&#10;" timestamp="2016-09-07T13:32:24.262+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T13:33:58.769+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeHexFrame : Code Updated&#10;" timestamp="2016-09-07T13:35:47.763+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T14:23:12.456+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:23:27.670+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:23:31.348+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:24:18.325+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T14:43:18.354+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:44:05.805+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:46:26.538+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:46:46.002+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHex : Service Added&#10;" timestamp="2016-09-07T14:53:59.082+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : removed&#10;" timestamp="2016-09-07T14:54:02.906+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Service Added, EncodeHex : Service Added&#10;" timestamp="2016-09-07T14:54:41.377+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : removed, EncodeHexFrame : removed&#10;" timestamp="2016-09-07T14:54:46.887+03:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
+]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation></ServiceImplementations><Subscriptions/></ThingShape><PropertyBindings/><RemotePropertyBindings/><RemoteServiceBindings/><RemoteEventBindings/><AlertConfigurations/><ImplementedShapes/><ThingProperties/><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="Importing Extension Package Metadata" timestamp="2016-07-29T17:10:41.740+03:00" user="SuperUser"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-29T17:29:51.472+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-31T19:49:46.746+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T19:49:50.192+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T19:56:11.910+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:10:20.458+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : Code Updated&#10;" timestamp="2016-07-31T21:13:52.492+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:15:47.620+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:16:33.804+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:22:56.107+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:23:45.801+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:27:40.308+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:28:48.908+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:29:52.867+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T21:57:27.813+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:00:27.758+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:43:07.141+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:46:23.831+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:49:19.557+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:50:26.701+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:52:54.783+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T22:54:05.475+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-07-31T23:09:47.711+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-08-01T10:27:27.927+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, Description updated, Service Added, DecodeBlob : Code Updated, Output Updated, Service Added, decodeFrameCopy : Code Updated&#10;" timestamp="2016-09-07T12:34:24.808+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, Output Updated, Description updated&#10;" timestamp="2016-09-07T12:37:33.571+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Input parameter data Updated, Inputs updated&#10;" timestamp="2016-09-07T12:38:00.490+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Input parameter offset Added, Inputs updated&#10;" timestamp="2016-09-07T12:41:57.966+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T12:43:19.502+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T12:43:25.068+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T12:44:53.292+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T13:02:24.023+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:02:52.404+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:05:40.861+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:07:10.059+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:11:00.216+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:11:30.681+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:12:20.975+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:14:01.598+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:14:23.248+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated&#10;" timestamp="2016-09-07T13:16:03.601+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated&#10;" timestamp="2016-09-07T13:18:50.214+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:18:57.036+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:20:28.637+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:21:00.260+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:23:33.042+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:24:10.792+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:02.116+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:31.358+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:25:48.943+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:26:38.409+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-07T13:27:18.485+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:29:55.327+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : encodeFrame : Code Updated&#10;" timestamp="2016-09-07T13:30:53.564+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:30:58.222+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T13:31:06.908+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeHexFrame : Code Updated, Service Added&#10;" timestamp="2016-09-07T13:31:48.829+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Output Updated, Service Added&#10;" timestamp="2016-09-07T13:32:24.262+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T13:33:58.769+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeHexFrame : Code Updated&#10;" timestamp="2016-09-07T13:35:47.763+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : Code Updated, EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T14:23:12.456+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:23:27.670+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:23:31.348+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:24:18.325+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : Code Updated&#10;" timestamp="2016-09-07T14:43:18.354+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:44:05.805+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:46:26.538+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T14:46:46.002+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHex : Service Added&#10;" timestamp="2016-09-07T14:53:59.082+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeHexString : removed&#10;" timestamp="2016-09-07T14:54:02.906+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Service Added, EncodeHex : Service Added&#10;" timestamp="2016-09-07T14:54:41.377+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlobFrame : removed, EncodeHexFrame : removed&#10;" timestamp="2016-09-07T14:54:46.887+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T22:52:01.787+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Code Updated&#10;" timestamp="2016-09-07T23:34:48.273+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:34:52.796+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Code Updated&#10;" timestamp="2016-09-07T23:38:39.947+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:39:58.213+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:48:04.731+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:50:05.302+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:57:17.390+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:57:23.503+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-07T23:58:17.113+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Code Updated&#10;" timestamp="2016-09-08T00:13:45.552+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-08T00:16:58.298+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-08T00:17:11.737+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-08T00:27:44.577+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-08T00:33:12.680+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : DecodeBlob : Code Updated&#10;" timestamp="2016-09-08T00:35:21.695+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-08T00:35:42.735+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : EncodeBlob : Code Updated&#10;" timestamp="2016-09-08T00:36:25.593+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="" timestamp="2016-09-08T00:37:25.892+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="services : decodeFrame : removed, encodeFrame : removed&#10;" timestamp="2016-09-08T00:37:58.858+03:00" user="Administrator"/></ConfigurationChanges></Thing></Things></Entities>
