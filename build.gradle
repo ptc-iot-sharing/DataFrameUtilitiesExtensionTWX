@@ -4,6 +4,7 @@ project.ext {
     uiDir = "${baseDir}/ui"
     libDir = "${baseDir}/lib"
     configDir = "${baseDir}/metadata.xml"
+    entitiesDir = "${baseDir}/Entities"
     zipDir = "${baseDir}/zip"
     packageVendor = "ThingWorx Customer Service"
 }
@@ -15,6 +16,10 @@ task prepPackage() {
         copy {
             from "${project.ext.configDir}"
             into "${buildDir}/zip/"
+        }
+         copy {
+            from "${project.ext.entitiesDir}"
+            into "${buildDir}/zip/Entities"
         }
         // add the ui files
         copy {
