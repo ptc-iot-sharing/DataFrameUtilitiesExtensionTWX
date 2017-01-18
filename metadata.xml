@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entities build="b452" majorVersion="6" minorVersion="0" revision="0" schemaVersion="803">
 	<ExtensionPackages>
-		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx Labs" packageVersion="1.0.6"  minimumThingWorxVersion="6.0.0"/>
+		<ExtensionPackage name="DataframeUtilitiesExtension" description="Provides an abstraction to help decoding and encoding low level messages" vendor="ThingWorx Labs" packageVersion="1.2.0"  minimumThingWorxVersion="6.0.0"/>
 	</ExtensionPackages>
 </Entities>
