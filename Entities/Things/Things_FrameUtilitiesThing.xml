@@ -159,7 +159,12 @@ for (var x = 0; x < frameFormat.rows.length; x++) {
         result[field.fieldName] = fieldValue >>> 0;
     }
     else {
-        result[field.fieldName] = fieldValue;
+        // the first bit must be treated as a sign bit
+        if(getBit(fieldValue, field.bitEnd - field.bitStart) == 1) {
+        	result[field.fieldName] = 0 - (1 << (field.bitEnd - field.bitStart  + 1 )) +  fieldValue;
+        } else {
+            result[field.fieldName] = fieldValue;
+        }
     }
 }
 //    logger.warn(logPrefix + JSON.stringify(result));]]></code></Row></Rows></ConfigurationTable></ConfigurationTables></ServiceImplementation><ServiceImplementation description="" handlerName="Script" name="DecodeHex"><ConfigurationTables><ConfigurationTable description="Script" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[/* jshint bitwise: false */
