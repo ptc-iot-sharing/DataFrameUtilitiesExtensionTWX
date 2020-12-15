@@ -1,1 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b14" majorVersion="7" minorVersion="1" modelPersistenceProviderPackage="H2PersistenceProviderPackage" revision="3" schemaVersion="911"><DataShapes><DataShape aspect.isEditableExtensionObject="true" aspect.isExtension="true" baseDataShape="" description="Describes a frame composed of multiple bytes." documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#10;" homeMashup="" lastModifiedDate="2016-09-08T00:15:27.123+03:00" name="FrameFormatDataShape" projectName="" tags="PTC:FrameUtilities"><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions/><VisibilityPermissions><Visibility/></VisibilityPermissions><ConfigurationTables/><FieldDefinitions><FieldDefinition baseType="INTEGER" description="What is the last bit in the field. This is inclusive, so it's included in the frame" name="bitEnd" ordinal="3"/><FieldDefinition baseType="INTEGER" description="What is the first bit in the field. This is inclusive, so it's included in the frame" name="bitStart" ordinal="2"/><FieldDefinition baseType="STRING" description="Name of the field. Will be used in the result" name="fieldName" ordinal="1"/><FieldDefinition baseType="BOOLEAN" description="This automatically assumes that we are going to use 32 bits from the bit start value" name="isFloat32" ordinal="6"/><FieldDefinition baseType="BOOLEAN" description="If a frame spans multiple bytes, how are the bytes organized" name="isLittleEndian" ordinal="4"/><FieldDefinition baseType="BOOLEAN" description="" name="isString" ordinal="7"/><FieldDefinition baseType="BOOLEAN" description="Should a 32 bit value be treated as unsigned or not" name="isUnsigned" ordinal="5"/><FieldDefinition baseType="STRING" description="The value of this frame. Used when encoding frames" name="value" ordinal="8"/></FieldDefinitions><ConfigurationChanges><ConfigurationChange changeAction="CREATE" changeReason="header : tags : updated, name : updated&#10;documentation : updated&#10;" timestamp="2016-01-15T12:08:31.933+02:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="header : tags : updated&#10;" timestamp="2016-01-15T12:09:57.901+02:00" user="Administrator"/><ConfigurationChange changeAction="CREATE" changeReason="Importing Extension Package Metadata" timestamp="2016-07-29T17:10:41.714+03:00" user="SuperUser"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : isUnsigned : Added, isFloat32 : Added&#10;" timestamp="2016-07-31T19:48:47.644+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : bitStart : Updated, bitEnd : Updated, isLittleEndian : Updated, isUnsigned : Updated, isFloat32 : Updated, value : Updated&#10;" timestamp="2016-09-07T15:02:46.431+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : value : Updated&#10;" timestamp="2016-09-07T15:03:10.670+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : value : Updated&#10;" timestamp="2016-09-08T00:14:05.071+03:00" user="Administrator"/><ConfigurationChange changeAction="MODIFY" changeReason="fields : isString : Added&#10;" timestamp="2016-09-08T00:15:27.123+03:00" user="Administrator"/></ConfigurationChanges></DataShape></DataShapes></Entities>
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b57"
+ majorVersion="8"
+ minorVersion="4"
+ revision="10"
+ schemaVersion="1044"
+ universal="password">
+    <DataShapes>
+        <DataShape
+         aspect.isEditableExtensionObject="true"
+         aspect.isExtension="true"
+         baseDataShape=""
+         description="Describes a frame composed of multiple bytes."
+         documentationContent=""
+         homeMashup=""
+         name="FrameFormatDataShape"
+         projectName="Concorde"
+         tags="PTC:FrameUtilities">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <FieldDefinitions>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="What is the last bit in the field. This is inclusive, so it's included in the frame"
+                 name="bitEnd"
+                 ordinal="3"></FieldDefinition>
+                <FieldDefinition
+                 baseType="INTEGER"
+                 description="What is the first bit in the field. This is inclusive, so it's included in the frame"
+                 name="bitStart"
+                 ordinal="2"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="Name of the field. Will be used in the result"
+                 name="fieldName"
+                 ordinal="1"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="This automatically assumes that we are going to use 32 bits from the bit start value"
+                 name="isFloat32"
+                 ordinal="6"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="If a frame spans multiple bytes, how are the bytes organized"
+                 name="isLittleEndian"
+                 ordinal="4"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description=""
+                 name="isString"
+                 ordinal="7"></FieldDefinition>
+                <FieldDefinition
+                 baseType="BOOLEAN"
+                 description="Should a 32 bit value be treated as unsigned or not"
+                 name="isUnsigned"
+                 ordinal="5"></FieldDefinition>
+                <FieldDefinition
+                 baseType="STRING"
+                 description="The value of this frame. Used when encoding frames"
+                 name="value"
+                 ordinal="8"></FieldDefinition>
+            </FieldDefinitions>
+        </DataShape>
+    </DataShapes>
+</Entities>
