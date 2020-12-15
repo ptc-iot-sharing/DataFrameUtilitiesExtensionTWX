@@ -29,7 +29,7 @@ task prepPackage() {
     }
 }
 
-task packageExtension(type: Zip, dependsOn: prepPackage, overwrite: true) {
+task packageExtension(type: Zip, dependsOn: prepPackage) {
     archiveName = "${project.name}.zip"
     destinationDir = new File(project.ext.zipDir)
     from "${buildDir}/zip/"
